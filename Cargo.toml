@@ -1,0 +1,13 @@
+[package]
+name = "diorama_raytracer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# raylib solo se usa para abrir la ventana, leer el teclado y mostrar la imagen.
+# todo el raytracing se calcula a mano en el CPU
+raylib = "5.5"
+
+# para que corra rapido aunque se use "cargo run" sin --release
+[profile.dev]
+opt-level = 3
