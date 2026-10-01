@@ -8,7 +8,7 @@ Todo el raytracing (rayos, intersecciones, luces, sombras, reflexión y refracci
 
 ## Video
 
-[Ver video del diorama](PEGAR_LINK_DEL_VIDEO_AQUI)
+[Ver video del diorama](https://youtu.be/oUYoW5M2ZYQ)
 
 ## Ejecución
 
