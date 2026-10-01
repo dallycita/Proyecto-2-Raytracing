@@ -14,8 +14,8 @@ impl OrbitCamera {
         OrbitCamera {
             target,
             yaw: 0.8,
-            pitch: 0.55,
-            distance: 38.0,
+            pitch: 0.5,
+            distance: 50.0,
             fov: 50f32.to_radians(),
         }
     }
@@ -41,6 +41,6 @@ impl OrbitCamera {
     // limites para no meterse al terreno ni verlo desde abajo
     pub fn clamp(&mut self) {
         self.pitch = self.pitch.clamp(0.05, 1.45);
-        self.distance = self.distance.clamp(16.0, 70.0);
+        self.distance = self.distance.clamp(24.0, 85.0);
     }
 }

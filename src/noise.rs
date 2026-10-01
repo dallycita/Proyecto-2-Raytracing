@@ -50,3 +50,30 @@ pub fn fbm(x: f32, y: f32, seed: u32, octaves: u32) -> f32 {
     }
     total / norm
 }
+
+// generador random sencillo (xorshift), cada pixel usa el suyo
+pub struct Rng {
+    state: u32,
+}
+
+impl Rng {
+    pub fn new(seed: u32) -> Rng {
+        // revuelvo la semilla para que pixeles vecinos no salgan parecidos
+        let mut rng = Rng {
+            state: seed.wrapping_mul(0x9E37_79B9) ^ 0x6A09_E667 | 1,
+        };
+        rng.next();
+        rng.next();
+        rng
+    }
+
+    // numero entre 0 y 1
+    pub fn next(&mut self) -> f32 {
+        let mut x = self.state;
+        x ^= x << 13;
+        x ^= x >> 17;
+        x ^= x << 5;
+        self.state = x;
+        (x & 0xFFFF) as f32 / 65535.0
+    }
+}
